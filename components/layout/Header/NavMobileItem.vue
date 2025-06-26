@@ -3,7 +3,7 @@
     <UiCollapsible v-model:open="isOpen">
       <UiCollapsibleTrigger class="w-full p-2 text-left">
         <div class="flex w-full gap-1">
-          {{ item.title }}
+          {{ $t(item.title) }}
           <Icon
             :name="isOpen ? 'lucide:chevrons-down-up' : 'lucide:chevrons-up-down'"
             size="12"
@@ -14,31 +14,31 @@
       <UiCollapsibleContent>
         <ul class="pl-2">
           <li v-for="link in item.links" :key="link.title">
-            <NuxtLink
-              :to="link.to"
+            <NuxtLinkLocale
+              :to="localePath(link.to)"
               :target="link.to"
-              class="mb-1 flex w-full gap-2 rounded-md px-3 py-2 transition-all hover:bg-muted"
+              class="hover:bg-muted mb-1 flex w-full gap-2 rounded-md px-3 py-2 transition-all"
             >
               <SmartIcon v-if="link.icon" :name="link.icon" :size="16" class="mt-1 min-w-5" />
 
               <div>
                 <div class="font-semibold">
-                  {{ link.title }}
+                  {{ $t(link.title) }}
                 </div>
-                <div class="text-sm text-muted-foreground">
-                  {{ link.description }}
+                <div class="text-muted-foreground text-sm">
+                  {{ $t(link.description) }}
                 </div>
               </div>
-            </NuxtLink>
+            </NuxtLinkLocale>
           </li>
         </ul>
       </UiCollapsibleContent>
     </UiCollapsible>
   </template>
-  <NuxtLink v-else :to="item.to" :target="item.target" class="flex w-full p-2">
-    {{ item.title }}
-    <Icon v-if="item.showLinkIcon ?? true" name="lucide:arrow-up-right" class="ml-1 text-muted-foreground" size="12" />
-  </NuxtLink>
+  <NuxtLinkLocale v-else :to="localePath(item.to)" :target="item.target" class="flex w-full p-2">
+    {{ $t(item.title) }}
+    <Icon v-if="item.showLinkIcon ?? true" name="lucide:arrow-up-right" class="text-muted-foreground ml-1" size="12" />
+  </NuxtLinkLocale>
 </template>
 
 <script setup lang="ts">
@@ -46,6 +46,7 @@ const props = defineProps<{
   item: any;
   index: number;
 }>();
+const { localePath } = useI18nDocs();
 
 const collapsed = useCollapsedMap();
 const isOpen = ref(collapsed.value.get(`mobile-header-nav${props.index}`) || false);

@@ -6,10 +6,13 @@
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
+[![sponsor][sponsor-src]][sponsor-href]
 
 Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customizable. Compatible. Open Source.**
 
-- [Documentation / Demo](https://shadcn-docs-nuxt.vercel.app/)
+📖 [Documentation / Demo](https://shadcn-docs-nuxt.vercel.app/)
+
+💬 [Discord](https://discord.gg/9P5HzAz8DT)
 
 ## Quick Start
 
@@ -19,10 +22,10 @@ Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customiz
   npx nuxi@latest init -t github:ZTL-UwU/shadcn-docs-nuxt-starter
   ```
 
-2. Install dependencies
+2. Navigating to the Project Directory
 
   ```bash
-  npm install
+  cd [project-name]
   ```
 
 3. Start dev server
@@ -34,8 +37,9 @@ Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customiz
 ## Contributing
 
 1. Clone this repository.
-2. Install dependencies `bun install`.
-3. Use `bun run dev` to start dev server.
+2. Install dependencies `pnpm install`.
+3. Use `pnpm run dev` to start dev server.
+4. Before committing, run `pnpm run lint:fix` and `pnpm run typecheck`.
 
 ## Credits
 
@@ -45,9 +49,20 @@ Beautifully designed _Nuxt Content_ template built with _shadcn-vue_. **Customiz
 - [Docus](https://docus.dev/): For the inspiration & some docs component source.
 - [Nuxt UI Pro Docs](https://docs-template.nuxt.dev/): For the inspiration.
 
+## Who's Using
+
+- [unovue/inspira-ui](https://github.com/unovue/inspira-ui) 3.1K ⭐️
+- [unjs/magic-regexp](https://github.com/unjs/magic-regexp) 4K ⭐️
+- [nuxt-monaco-editor](https://github.com/e-chan1007/nuxt-monaco-editor)
+- [nuxt-umami](https://github.com/ijkml/nuxt-umami)
+- [Msty](https://docs.msty.app/getting-started/onboarding)
+- [Archiver](https://github.com/Ast3risk-ops/archiver)
+- [ePoc](https://epoc.inria.fr/en)
+- [Add your project 🚀](https://github.com/ZTL-UwU/shadcn-docs-nuxt/edit/main/README.md)
+
 ## License
 
-MIT
+[MIT](https://github.com/ZTL-UwU/shadcn-docs-nuxt/blob/main/LICENSE)
 
 ---
 
@@ -61,3 +76,5 @@ MIT
 [license-href]: https://github.com/ZTL-UwU/shadcn-docs-nuxt/blob/main/LICENSE
 [nuxt-src]: https://img.shields.io/badge/Built%20With%20Nuxt-18181B?logo=nuxt
 [nuxt-href]: https://nuxt.com/
+[sponsor-src]: https://img.shields.io/badge/sponsor%20me-18181B?logo=kofi
+[sponsor-href]: https://ko-fi.com/ztl_uwu

@@ -2,48 +2,67 @@
   <UiScrollArea
     v-if="!isSmall"
     orientation="vertical"
-    class="z-30 hidden h-[calc(100vh-6.5rem)] overflow-y-auto md:block lg:block"
+    class="z-30 hidden overflow-y-auto md:block lg:block"
     type="hover"
   >
-    <div class="flex h-[calc(100vh-6.5rem)] flex-col">
+    <div
+      class="flex flex-col gap-5"
+      :class="[
+        (config.aside.useLevel && config.aside.levelStyle === 'aside') ? 'h-[calc(100vh-6.5rem)]' : 'h-[calc(100vh-10rem)]',
+      ]"
+    >
       <div v-if="toc?.links.length">
         <p class="mb-2 text-base font-semibold">
-          {{ title }}
+          {{ $t(title) }}
         </p>
         <LayoutTocTree
           :links="toc.links.filter((x: any) => x.id !== 'hide-toc')"
           :level="0"
-          :class="[links.length && 'border-b pb-5']"
+          :class="[(links.length || iconLinks?.length) && 'border-b pb-5']"
         />
-        <div v-if="links" class="pt-5 text-muted-foreground">
-          <NuxtLink
-            v-for="(link, i) in links"
-            :key="i"
-            :to="link.to"
-            :target="link.target"
-            class="flex w-full gap-1 underline-offset-4 hover:underline [&:not(:first-child)]:pt-3"
-          >
+      </div>
+      <div v-if="links.length" class="text-muted-foreground" :class="[iconLinks?.length && 'border-b pb-5']">
+        <NuxtLinkLocale
+          v-for="(link, i) in links"
+          :key="i"
+          :to="localePath(link.to)"
+          :target="link.target"
+          class="flex w-full gap-1 underline-offset-4 hover:underline [&:not(:first-child)]:pt-3"
+        >
+          <SmartIcon
+            v-if="link.icon"
+            :name="link.icon"
+            class="mr-1 self-center"
+          />
+          {{ $t(link.title) }}
+          <Icon v-if="link.showLinkIcon ?? (link.target === '_blank')" name="lucide:arrow-up-right" class="text-muted-foreground ml-auto self-center" size="13" />
+        </NuxtLinkLocale>
+      </div>
+      <div v-if="iconLinks" class="text-muted-foreground">
+        <NuxtLinkLocale
+          v-for="(link, i) in iconLinks"
+          :key="i"
+          :to="localePath(link.to)"
+          :target="link.target"
+        >
+          <UiButton size="icon" variant="ghost" class="size-7">
             <SmartIcon
               v-if="link.icon"
               :name="link.icon"
-              class="mr-1 self-center"
             />
-            {{ link.title }}
-            <Icon v-if="link.showLinkIcon ?? true" name="lucide:arrow-up-right" class="ml-auto self-center text-muted-foreground" size="13" />
-          </NuxtLink>
-        </div>
+          </UiButton>
+        </NuxtLinkLocale>
       </div>
       <div class="flex-grow" />
-      <LayoutCarbonAds v-if="carbonAdsEnabled" />
+      <LayoutCarbonAds v-if="isDesktop && carbonAdsEnabled" />
     </div>
   </UiScrollArea>
   <UiCollapsible
     v-else
     v-model:open="isOpen"
     class="block w-full text-sm lg:hidden"
-    :class="{ 'border-b': border }"
   >
-    <UiCollapsibleTrigger class="flex w-full px-4 py-3 text-left font-medium">
+    <UiCollapsibleTrigger class="flex w-full px-4 md:px-8 py-3 text-left font-medium">
       {{ title }}
       <Icon
         name="lucide:chevron-right"
@@ -59,13 +78,17 @@
 
 <script setup lang="ts">
 defineProps<{ isSmall: boolean }>();
+const config = useConfig();
 
 const { toc } = useContent();
-const { title, links: configLinks, carbonAds } = useConfig().value.toc;
+const { localePath } = useI18nDocs();
+const { title, links: configLinks, iconLinks, carbonAds } = useConfig().value.toc;
+
+const isDesktop = useMediaQuery('(min-width: 1024px)');
 const carbonAdsEnabled = computed(
   () => carbonAds.enable && !(import.meta.dev && carbonAds.disableInDev),
 );
-const { border } = useConfig().value.header;
+
 const isOpen = ref(false);
 
 const { url, enabledToc, text, icon } = useEditLink();

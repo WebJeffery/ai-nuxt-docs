@@ -3,7 +3,7 @@
     class="transition-all [&:not(:first-child)]:mt-5"
     :class="[
       typeTwClass[type],
-      to && 'cursor-pointer hover:bg-muted/50',
+      to && 'hover:bg-muted/50 cursor-pointer',
       inStack && 'm-0 rounded-none border-none',
     ]"
     @click="alertClick"
@@ -45,24 +45,27 @@ const {
 
 const typeTwClass = {
   default: '',
-  info: 'border-sky-600 text-sky-600 [&>svg]:text-sky-600',
-  note: 'border-blue-700 text-blue-700 [&>svg]:text-blue-700',
-  example: 'border-violet-600 text-violet-600 [&>svg]:text-violet-600',
-  warning: 'border-amber-600 text-amber-600 [&>svg]:text-amber-600',
-  success: 'border-green-600 text-green-600 [&>svg]:text-green-600',
-  danger: 'border-red-600 text-red-600 [&>svg]:text-red-600',
+  info: 'border-blue-500 bg-blue-50 [&_.inline-code]:bg-blue-100 dark:border-blue-900 dark:bg-blue-950 dark:[&_.inline-code]:bg-blue-900 text-blue-600',
+  note: 'border-sky-500 bg-sky-50 [&_.inline-code]:bg-sky-100 dark:border-sky-900 dark:bg-sky-950 dark:[&_.inline-code]:bg-sky-900 text-sky-600',
+  example: 'border-violet-500 bg-violet-50 [&_.inline-code]:bg-violet-100 dark:border-violet-900 dark:bg-violet-950 dark:[&_.inline-code]:bg-violet-900 text-violet-600',
+  warning: 'border-amber-500 bg-amber-50 [&_.inline-code]:bg-amber-100 dark:border-amber-900 dark:bg-amber-950 dark:[&_.inline-code]:bg-amber-900 text-amber-600',
+  success: 'border-green-500 bg-green-50 [&_.inline-code]:bg-green-100 dark:border-green-900 dark:bg-green-950 dark:[&_.inline-code]:bg-green-900 text-green-600',
+  danger: 'border-red-500 bg-red-50 [&_.inline-code]:bg-red-100 dark:border-red-900 dark:bg-red-950 dark:[&_.inline-code]:bg-red-900 text-red-600',
   secondary: 'bg-muted/50',
 };
 
 async function alertClick() {
+  const localePath = useLocalePath();
+
   if (to) {
+    const localeTo = localePath(to);
     if (target) {
-      await navigateTo(to, {
+      await navigateTo(localeTo, {
         external: external ?? to.startsWith('http'),
         open: { target },
       });
     } else {
-      await navigateTo(to, {
+      await navigateTo(localeTo, {
         external: external ?? to.startsWith('http'),
       });
     }

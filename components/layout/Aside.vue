@@ -2,13 +2,13 @@
   <UiScrollArea orientation="vertical" class="relative h-full overflow-hidden py-6 pr-6 text-sm md:pr-4" type="hover">
     <LayoutHeaderNavMobile v-if="isMobile" class="mb-5 border-b pb-2" />
     <LayoutSearchButton v-if="config.search.inAside" />
-    <ul v-if="config.aside.useLevel" class="flex flex-col gap-1 border-b pb-4">
+    <ul v-if="config.aside.useLevel && config.aside.levelStyle === 'aside'" class="flex flex-col gap-1 border-b pb-4">
       <li v-for="link in navigation" :key="link.id">
-        <NuxtLink
+        <NuxtLinkLocale
           :to="link.redirect ?? link._path"
-          class="flex h-8 items-center gap-2 rounded-md p-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary"
+          class="text-foreground/80 hover:bg-muted hover:text-primary flex h-8 items-center gap-2 rounded-md p-2 text-sm"
           :class="[
-            path.startsWith(link._path) && 'bg-muted !text-primary',
+            path.startsWith(link._path) && 'bg-muted !text-primary font-medium',
           ]"
         >
           <SmartIcon
@@ -24,13 +24,13 @@
               {{ badge.value }}
             </Badge>
           </span>
-        </NuxtLink>
+        </NuxtLinkLocale>
       </li>
     </ul>
     <LayoutAsideTree
       :links="tree"
       :level="0"
-      :class="[config.aside.useLevel ? 'pt-4' : 'pt-1']"
+      :class="[(config.aside.useLevel && config.aside.levelStyle === 'aside') ? 'pt-4' : 'pt-1']"
     />
   </UiScrollArea>
 </template>
@@ -39,14 +39,14 @@
 defineProps<{ isMobile: boolean }>();
 
 const { navDirFromPath } = useContentHelpers();
-const { navigation } = useContent();
 const config = useConfig();
+const { locale, defaultLocale, navigation } = useI18nDocs();
 
 const tree = computed(() => {
   const route = useRoute();
   const path = route.path.split('/');
   if (config.value.aside.useLevel) {
-    const leveledPath = path.splice(0, 2).join('/');
+    const leveledPath = path.splice(0, locale.value === defaultLocale ? 2 : 3).join('/');
 
     const dir = navDirFromPath(leveledPath, navigation.value);
     return dir ?? [];

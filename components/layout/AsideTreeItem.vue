@@ -4,7 +4,7 @@
     <div v-if="link.children">
       <template v-if="folderStyle === 'group'">
         <div
-          class="mt-2 flex items-center gap-2 rounded-md px-2 text-xs font-semibold text-foreground/70 outline-none"
+          class="text-foreground/70 mt-2 flex items-center gap-2 rounded-md px-2 text-xs font-semibold outline-none"
           :class="[link.navTruncate !== false && 'h-8']"
         >
           <LayoutAsideTreeItemButton :link />
@@ -13,7 +13,7 @@
       </template>
       <template v-else>
         <button
-          class="flex w-full cursor-pointer items-center gap-2 rounded-md p-2 text-left text-sm font-medium text-foreground/80 hover:bg-muted hover:text-primary"
+          class="text-foreground/80 hover:bg-muted hover:text-primary flex w-full cursor-pointer items-center gap-2 rounded-md p-2 text-left text-sm"
           :class="[link.navTruncate !== false && 'h-8']"
           @click="isOpen = !isOpen"
         >
@@ -37,22 +37,22 @@
       </template>
     </div>
     <!-- Page -->
-    <NuxtLink
+    <NuxtLinkLocale
       v-else
       :to="link._path"
-      class="flex items-center gap-2 rounded-md p-2 text-sm text-foreground/80 hover:bg-muted hover:text-primary"
+      class="text-foreground/80 hover:bg-muted hover:text-primary flex items-center gap-2 rounded-md p-2 text-sm"
       :class="[
-        isActive && 'bg-muted !text-primary',
+        isActive && 'bg-muted !text-primary font-medium',
         link.navTruncate !== false && 'h-8',
       ]"
     >
       <LayoutAsideTreeItemButton :link />
-    </NuxtLink>
+    </NuxtLinkLocale>
   </li>
 </template>
 
 <script setup lang="ts">
-import type { NavItem } from '@nuxt/content';
+import type { NavItem } from '@ztl-uwu/nuxt-content';
 
 const { link, level } = defineProps<{
   link: NavItem;
@@ -62,19 +62,23 @@ const { link, level } = defineProps<{
 const { collapse, collapseLevel, folderStyle: defaultFolderStyle } = useConfig().value.aside;
 
 const collapsed = useCollapsedMap();
-const isOpen = ref(collapsed.value.get(link._path) || defaultOpen());
+const route = useRoute();
 
 function defaultOpen() {
+  if (route.path.includes(link._path))
+    return true;
   if (link.collapse !== undefined)
     return !link.collapse;
 
   return level < collapseLevel && !collapse;
 }
 
+const isOpen = ref(collapsed.value.get(link._path) || defaultOpen());
+
 watch(isOpen, (v) => {
   collapsed.value.set(link._path, v);
 });
-const isActive = computed(() => link._path === useRoute().path);
+const isActive = computed(() => link._path === route.path);
 
 const folderStyle = computed(() => link.sidebar?.style ?? defaultFolderStyle);
 </script>

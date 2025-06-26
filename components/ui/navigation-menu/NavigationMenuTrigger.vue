@@ -13,15 +13,15 @@
 </template>
 
 <script setup lang="ts">
-import type { NavigationMenuTriggerProps } from 'radix-vue';
+import type { NavigationMenuTriggerProps } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
-import { cn } from '@/lib/utils';
 import {
   NavigationMenuTrigger,
 
   useForwardProps,
-} from 'radix-vue';
+} from 'reka-ui';
 import { computed } from 'vue';
+import { cn } from '@/lib/utils';
 import { navigationMenuTriggerStyle } from '.';
 
 const props = defineProps<NavigationMenuTriggerProps & { class?: HTMLAttributes['class'] }>();

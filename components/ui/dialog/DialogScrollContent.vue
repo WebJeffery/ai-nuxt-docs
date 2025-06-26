@@ -1,7 +1,7 @@
 <template>
   <DialogPortal>
     <DialogOverlay
-      class="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"
+      class="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-black/80"
     >
       <DialogContent
         :class="
@@ -22,7 +22,7 @@
         <slot />
 
         <DialogClose
-          class="absolute right-3 top-3 rounded-md p-0.5 transition-colors hover:bg-secondary"
+          class="hover:bg-secondary absolute right-3 top-3 rounded-md p-0.5 transition-colors"
         >
           <Icon name="lucide:x" class="block size-4" />
           <span class="sr-only">Close</span>
@@ -33,9 +33,8 @@
 </template>
 
 <script setup lang="ts">
-import type { DialogContentEmits, DialogContentProps } from 'radix-vue';
+import type { DialogContentEmits, DialogContentProps } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
-import { cn } from '@/lib/utils';
 import {
   DialogClose,
   DialogContent,
@@ -43,8 +42,9 @@ import {
   DialogOverlay,
   DialogPortal,
   useForwardPropsEmits,
-} from 'radix-vue';
+} from 'reka-ui';
 import { computed } from 'vue';
+import { cn } from '@/lib/utils';
 
 const props = defineProps<DialogContentProps & { class?: HTMLAttributes['class'] }>();
 const emits = defineEmits<DialogContentEmits>();

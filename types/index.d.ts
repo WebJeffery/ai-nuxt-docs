@@ -35,16 +35,21 @@ interface DefaultConfig {
     };
     showTitleInMobile: boolean;
     darkModeToggle: boolean;
+    languageSwitcher: {
+      enable: boolean;
+      triggerType: 'icon' | 'text';
+      dropdownType: 'select' | 'popover';
+    };
     nav: ({
       title: string;
       to: string;
       target: string;
       showLinkIcon: boolean;
       links: ({
-        title: string;
-        to: string;
-        target: string;
-        description: string;
+        title?: string;
+        to?: string;
+        target?: string;
+        description?: string;
         icon?: string;
       })[];
     })[];
@@ -56,6 +61,8 @@ interface DefaultConfig {
   };
   aside: {
     useLevel: boolean;
+    levelStyle: 'aside' | 'header';
+    headerLevelNavAlign: 'start' | 'center' | 'end';
     collapse: boolean;
     collapseLevel: number;
     folderStyle: 'default' | 'tree' | 'group';
@@ -64,6 +71,7 @@ interface DefaultConfig {
     breadCrumb: boolean;
     showTitle: boolean;
     codeCopyToast: boolean;
+    codeCopyIcon: string;
     codeCopyToastText: string;
     fieldRequiredText: string;
     padded: boolean;
@@ -101,9 +109,15 @@ interface DefaultConfig {
       target: string;
       showLinkIcon: boolean;
     })[];
+    iconLinks: ({
+      icon: string;
+      to: string;
+      target: string;
+    })[];
     carbonAds: {
       enable: boolean;
       disableInDev: boolean;
+      disableInMobile: boolean;
       fallback: boolean;
       fallbackMessage: string;
       code: string;
@@ -118,21 +132,24 @@ interface DefaultConfig {
     placeholder: string;
     placeholderDetailed: string;
   };
+  data?: {
+    [key: string]: any;
+  };
 }
 
-type Color =
-  | 'zinc'
-  | 'slate'
-  | 'stone'
-  | 'gray'
-  | 'neutral'
-  | 'red'
-  | 'rose'
-  | 'orange'
-  | 'green'
-  | 'blue'
-  | 'yellow'
-  | 'violet';
+type Color
+  = | 'zinc'
+    | 'slate'
+    | 'stone'
+    | 'gray'
+    | 'neutral'
+    | 'red'
+    | 'rose'
+    | 'orange'
+    | 'green'
+    | 'blue'
+    | 'yellow'
+    | 'violet';
 
 type Target = '_blank' | '_parent' | '_self' | '_top' | (string & object) | null | undefined;
 
@@ -143,4 +160,9 @@ interface FileTreeItem {
   children?: FileTreeItem[];
   highlighted: boolean;
   diff: FileTreeItemDiff;
+  path?: string;
 }
+
+type InputTreeItem = string | {
+  [key: string]: InputTreeItem[];
+};

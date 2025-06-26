@@ -1,20 +1,22 @@
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import tailwindcss from '@tailwindcss/vite';
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
     '@vueuse/nuxt',
-    '@nuxt/content',
+    '@ztl-uwu/nuxt-content',
     '@nuxt/image',
     '@nuxt/icon',
     '@nuxtjs/color-mode',
     'nuxt-og-image',
     '@nuxt/scripts',
+    '@nuxtjs/i18n',
+    '@nuxt/fonts',
   ],
   shadcn: {
     prefix: 'Ui',
@@ -28,12 +30,19 @@ export default defineNuxtConfig({
       },
     ],
   },
+  i18n: {
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
+    strategy: 'prefix_except_default',
+  },
   colorMode: {
     classSuffix: '',
     disableTransition: true,
   },
   css: [
     join(currentDir, './assets/css/themes.css'),
+    '~/assets/css/tailwind.css',
   ],
   content: {
     documentDriven: true,
@@ -56,6 +65,7 @@ export default defineNuxtConfig({
         'editLink',
         'prevNext',
         'breadcrumb',
+        'fullpage',
       ],
     },
     experimental: {
@@ -70,6 +80,26 @@ export default defineNuxtConfig({
       sizeLimitKb: 512,
     },
   },
+  fonts: {
+    defaults: {
+      weights: ['300 800'],
+    },
+    providers: {
+      google: false,
+    },
+    families: [
+      {
+        name: 'Geist',
+        src: 'local("Geist")',
+        weights: ['300', '400', '500', '600', '700', '800'],
+      },
+      {
+        name: 'Geist Mono',
+        src: 'local("Geist Mono")',
+        weights: ['300', '400', '500', '600', '700', '800'],
+      },
+    ],
+  },
   typescript: {
     tsConfig: {
       compilerOptions: {
@@ -77,8 +107,13 @@ export default defineNuxtConfig({
       },
     },
   },
-  build: {
-    transpile: ['shiki'],
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+    optimizeDeps: {
+      include: ['debug'],
+    },
   },
-  compatibilityDate: '2024-07-05',
+  compatibilityDate: '2025-05-13',
 });
