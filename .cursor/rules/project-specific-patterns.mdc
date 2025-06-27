@@ -1,0 +1,271 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 项目特定模式和约定
+
+## 项目技术栈配置
+
+### Nuxt配置模式
+基于[nuxt.config.ts](mdc:nuxt.config.ts)的配置模式：
+```typescript
+export default defineNuxtConfig({
+  modules: [
+    'shadcn-nuxt',        // UI组件库
+    '@vueuse/nuxt',       // Vue组合式工具
+    '@ztl-uwu/nuxt-content', // 内容管理
+    '@nuxt/image',        // 图片优化
+    '@nuxt/icon',         // 图标系统
+    '@nuxtjs/color-mode', // 暗色模式
+    'nuxt-og-image',      // OG图片生成
+    '@nuxtjs/i18n',       // 国际化
+  ],
+  shadcn: {
+    prefix: 'Ui',
+    componentDir: './components/ui',
+  },
+  content: {
+    documentDriven: true,
+    highlight: {
+      theme: {
+        default: 'github-light',
+        dark: 'github-dark',
+      },
+    },
+  }
+})
+```
+
+## UI组件开发模式
+
+### shadcn-vue组件模式
+基于[components/ui/button/Button.vue](mdc:components/ui/button/Button.vue)的模式：
+```vue
+<template>
+  <Primitive
+    :as="as"
+    :as-child="asChild"
+    :class="cn(buttonVariants({ variant, size }), props.class)"
+  >
+    <slot />
+  </Primitive>
+</template>
+
+<script setup lang="ts">
+import type { PrimitiveProps } from 'reka-ui'
+import type { HTMLAttributes } from 'vue'
+import type { ButtonVariants } from '.'
+import { Primitive } from 'reka-ui'
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '.'
+
+interface Props extends PrimitiveProps {
+  variant?: ButtonVariants['variant']
+  size?: ButtonVariants['size']
+  class?: HTMLAttributes['class']
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  as: 'button',
+})
+</script>
+```
+
+### 关键组件开发约定
+1. **基础组件使用Primitive**: 所有UI组件基于`reka-ui`的`Primitive`组件
+2. **样式类名合并**: 使用`cn()`函数合并类名，定义在[lib/utils.ts](mdc:lib/utils.ts)
+3. **变体系统**: 使用`cva`（class-variance-authority）定义组件变体
+4. **类型继承**: 继承`PrimitiveProps`和HTML属性类型
+5. **插槽优先**: 优先使用插槽提供内容灵活性
+
+## 组合式函数模式
+
+### 标准组合式函数结构
+基于[composables/useThemes.ts](mdc:composables/useThemes.ts)的模式：
+```typescript
+export function useThemes() {
+  // 1. 响应式状态管理
+  const { value: color } = useColorMode()
+  const isDark = color === 'dark'
+
+  // 2. 持久化状态
+  const config = useCookie<Config>('theme', {
+    default: () => ({
+      theme: defaultTheme.color,
+      radius: defaultTheme.radius,
+    }),
+  })
+
+  // 3. 计算属性
+  const theme = computed(() => config.value.theme)
+  const themeClass = computed(() => `theme-${theme.value}`)
+
+  // 4. 方法定义
+  function setTheme(themeName: Theme['name']) {
+    config.value.theme = themeName
+  }
+
+  // 5. 清晰的返回接口
+  return {
+    themeClass,
+    theme,
+    setTheme,
+    radius,
+    setRadius,
+    themePrimary,
+  }
+}
+```
+
+### 组合式函数约定
+1. **使用`use`前缀**: 所有组合式函数以`use`开头
+2. **useCookie持久化**: 使用`useCookie`进行客户端状态持久化
+3. **计算属性响应式**: 使用`computed`创建响应式计算值
+4. **明确返回接口**: 返回对象包含状态和方法
+5. **类型定义**: 提供完整的TypeScript类型支持
+
+## 导入和别名约定
+
+### 导入模式
+```typescript
+// 1. Node.js模块
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+// 2. 第三方库
+import { cn } from '@/lib/utils'
+import { Primitive } from 'reka-ui'
+
+// 3. 项目内部
+import type { Theme } from '@/lib/themes'
+import { themes } from '@/lib/themes'
+
+// 4. Vue相关
+import { ref, computed } from 'vue'
+import type { Component } from 'vue'
+```
+
+### 路径别名
+- `@/` - 项目根目录
+- `#components` - 自动导入的组件
+- `#imports` - 自动导入的组合式函数
+
+## 样式和主题约定
+
+### CSS类名约定
+- 使用Tailwind CSS工具类
+- 组件变体使用`cva`定义
+- 主题切换使用CSS变量
+- 支持亮色/暗色模式
+
+### 主题系统
+```typescript
+// 主题定义模式
+interface Theme {
+  name: string
+  label: string
+  cssVars: {
+    light: Record<string, string>
+    dark: Record<string, string>
+  }
+}
+
+// 主题应用模式
+const themeClass = computed(() => `theme-${theme.value}`)
+```
+
+## 文档内容约定
+
+### Markdown文档模式
+```yaml
+---
+title: 页面标题
+description: 页面描述
+icon: lucide:book-open
+navBadges:
+  - text: 新功能
+    variant: default
+toc: true
+sidebar: true
+editLink: true
+prevNext: true
+---
+```
+
+### 内容组件使用
+```vue
+<!-- 在Markdown中直接使用Vue组件 -->
+<Alert variant="destructive">
+  这是一个警告信息
+</Alert>
+
+<CodeGroup>
+  <CodeGroupItem title="Vue" active>
+  ```vue
+  <template>
+    <div>Hello World</div>
+  </template>
+  ```
+  </CodeGroupItem>
+</CodeGroup>
+```
+
+## 国际化约定
+
+### 多语言支持
+- 支持英语(默认)、法语(fr)、高棉语(km)
+- 使用`@nuxtjs/i18n`模块
+- 采用`prefix_except_default`策略
+- 语言文件在各语言目录下
+
+### 语言切换组件
+```vue
+<template>
+  <select v-model="$i18n.locale">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="km">ខ្មែរ</option>
+  </select>
+</template>
+```
+
+## 性能优化模式
+
+### 自动优化配置
+- 使用Nuxt的自动代码分割
+- 图片优化通过`@nuxt/image`
+- 字体优化通过`@nuxt/fonts`
+- 图标按需加载通过`@nuxt/icon`
+
+### 组件懒加载
+```vue
+<script setup lang="ts">
+// 懒加载大型组件
+const HeavyComponent = defineAsyncComponent(() => 
+  import('./HeavyComponent.vue')
+)
+</script>
+```
+
+## 开发工具配置
+
+### TypeScript配置
+- 严格类型检查
+- 路径别名支持
+- 自动类型推导
+
+### ESLint规则
+- Vue3官方规则
+- TypeScript支持
+- 自动格式化
+
+### Vite优化
+```typescript
+vite: {
+  plugins: [tailwindcss()],
+  optimizeDeps: {
+    include: ['debug']
+  }
+}
+```

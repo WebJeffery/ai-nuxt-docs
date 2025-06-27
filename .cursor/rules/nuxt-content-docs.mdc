@@ -1,0 +1,87 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Nuxt Content 文档系统规范
+
+## 内容管理
+项目使用@ztl-uwu/nuxt-content管理文档内容，配置在[nuxt.config.ts](mdc:nuxt.config.ts)中。
+
+## 文档结构
+
+当 `www/content` 目录结构更新和内容更新，要同步更新这个文档
+```
+www/content/
+├── index.md                    # 首页
+├── 1.getting-started/          # 入门指南
+├── 2.components/               # 组件文档
+├── 3.api/                      # API文档
+├── 4.blog/                     # 博客文章
+├── fr/                         # 法语文档
+└── km/                         # 高棉语文档
+```
+
+## 文档编写规范
+
+### 1. Markdown语法
+- 使用标准Markdown语法
+- 支持MDC扩展语法
+- 代码块使用语法高亮
+- 图片使用相对路径
+
+### 2. Front Matter配置
+```yaml
+---
+title: 页面标题
+description: 页面描述
+icon: lucide:book-open
+navBadges:
+  - text: 新功能
+    variant: default
+toc: true
+sidebar: true
+editLink: true
+prevNext: true
+---
+```
+
+### 3. 组件使用
+在Markdown中可以直接使用Vue组件：
+```vue
+<Alert>
+  这是一个警告信息
+</Alert>
+
+<Card>
+  <CardHeader>
+    <CardTitle>卡片标题</CardTitle>
+  </CardHeader>
+  <CardContent>
+    卡片内容
+  </CardContent>
+</Card>
+```
+
+### 4. 代码块
+```markdown
+```vue
+<script setup lang="ts">
+const message = ref('Hello World')
+</script>
+
+<template>
+  <div>{{ message }}</div>
+</template>
+```
+
+## 国际化支持
+- 支持多语言文档
+- 使用@nuxtjs/i18n模块
+- 语言配置在[i18n/i18n.config.ts](mdc:i18n/i18n.config.ts)
+- 支持语言切换功能
+
+## 搜索功能
+- 支持全文搜索
+- 基于minisearch实现
+- 可配置搜索字段和权重

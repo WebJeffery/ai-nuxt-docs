@@ -1,0 +1,35 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# AI Nuxt Docs 项目概览
+
+这是一个基于Nuxt3构建的现代化文档站点项目，使用Vue3+TypeScript技术栈。
+
+## 核心技术栈
+- **框架**: Nuxt3 (Vue3)
+- **语言**: TypeScript
+- **UI组件**: shadcn-vue
+- **样式**: Tailwind CSS
+- **内容管理**: @ztl-uwu/nuxt-content
+- **国际化**: @nuxtjs/i18n
+- **包管理**: pnpm
+
+## 项目结构
+- [nuxt.config.ts](mdc:nuxt.config.ts) - Nuxt配置文件，包含所有模块和插件配置
+- [package.json](mdc:package.json) - 项目依赖和脚本配置
+- [components.json](mdc:components.json) - shadcn-vue组件配置
+- [app.vue](mdc:app.vue) - 应用根组件
+- [www/](mdc:www) - 文档内容目录
+- [components/](mdc:components) - Vue组件目录
+- [composables/](mdc:composables) - 组合式函数
+- [lib/](mdc:lib) - 工具函数和配置
+- [types/](mdc:types) - TypeScript类型定义
+
+## 开发规范
+- 使用Vue3组合式API和`<script setup>`语法
+- 遵循TypeScript类型安全原则
+- 组件使用shadcn-vue设计系统
+- 支持多语言国际化
+- 支持暗色/亮色主题切换

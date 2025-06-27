@@ -1,0 +1,111 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 性能优化规范
+
+## Nuxt3 自动优化
+
+### 1. 代码分割
+- Nuxt自动进行代码分割
+- 页面级懒加载
+- 组件级按需加载
+- 减少初始包大小
+
+### 2. 静态资源优化
+- 图片自动优化 ([@nuxt/image](mdc:nuxt.config.ts))
+- 字体优化 ([@nuxt/fonts](mdc:nuxt.config.ts))
+- 图标按需加载 ([@nuxt/icon](mdc:nuxt.config.ts))
+
+### 3. 缓存策略
+- 浏览器缓存优化
+- 服务端缓存
+- 静态资源缓存
+- API响应缓存
+
+## 组件优化
+
+### 1. 懒加载组件
+```vue
+<script setup lang="ts">
+// 懒加载大型组件
+const HeavyComponent = defineAsyncComponent(() => 
+  import('./HeavyComponent.vue')
+)
+</script>
+```
+
+### 2. 条件渲染
+```vue
+<template>
+  <!-- 使用v-if避免不必要的渲染 -->
+  <div v-if="isVisible">
+    <ExpensiveComponent />
+  </div>
+</template>
+```
+
+### 3. 列表优化
+```vue
+<template>
+  <!-- 使用key优化列表渲染 -->
+  <div v-for="item in items" :key="item.id">
+    {{ item.name }}
+  </div>
+</template>
+```
+
+## 内容优化
+
+### 1. 文档内容
+- 使用[Nuxt Content](mdc:nuxt.config.ts)的搜索索引
+- 代码高亮按需加载
+- 图片懒加载
+- 分页加载长文档
+
+### 2. 国际化优化
+- 语言包按需加载
+- 翻译缓存
+- 避免重复翻译
+
+## 构建优化
+
+### 1. 依赖优化
+```typescript
+// nuxt.config.ts
+export default defineNuxtConfig({
+  vite: {
+    optimizeDeps: {
+      include: ['debug']
+    }
+  }
+})
+```
+
+### 2. 包大小监控
+- 使用`pnpm build`分析包大小
+- 监控依赖增长
+- 移除未使用的依赖
+
+### 3. 开发体验
+- 热更新优化
+- 类型检查优化
+- ESLint性能优化
+
+## 运行时优化
+
+### 1. 内存管理
+- 及时清理事件监听器
+- 避免内存泄漏
+- 合理使用响应式数据
+
+### 2. 网络优化
+- 减少HTTP请求
+- 使用CDN加速
+- 压缩静态资源
+
+### 3. 用户体验
+- 骨架屏加载
+- 进度指示器
+- 错误边界处理

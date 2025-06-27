@@ -1,0 +1,68 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# shadcn-vue 组件使用规范
+
+## 组件配置
+项目使用shadcn-vue作为UI组件库，配置在[components.json](mdc:components.json)中：
+- 组件前缀：`Ui`
+- 组件目录：[components/ui/](mdc:components/ui)
+- 工具函数：[lib/utils.ts](mdc:lib/utils.ts)
+
+## 组件目录结构
+```
+components/ui/
+├── accordion/     # 手风琴组件
+├── alert/         # 警告组件
+├── avatar/        # 头像组件
+├── badge/         # 徽章组件
+├── button/        # 按钮组件
+├── card/          # 卡片组件
+├── dialog/        # 对话框组件
+├── dropdown-menu/ # 下拉菜单组件
+├── tabs/          # 标签页组件
+└── ...
+```
+
+## 使用规范
+
+### 1. 导入组件
+```vue
+<script setup lang="ts">
+import { UiButton, UiCard, UiBadge } from '#components'
+</script>
+```
+
+### 2. 组件使用示例
+```vue
+<template>
+  <UiCard>
+    <UiCardHeader>
+      <UiCardTitle>标题</UiCardTitle>
+      <UiCardDescription>描述</UiCardDescription>
+    </UiCardHeader>
+    <UiCardContent>
+      <UiBadge variant="secondary">标签</UiBadge>
+      <UiButton>按钮</UiButton>
+    </UiCardContent>
+  </UiCard>
+</template>
+```
+
+### 3. 样式定制
+- 使用Tailwind CSS类名
+- 支持CSS变量主题切换
+- 遵循设计系统规范
+- 保持组件一致性
+
+### 4. 响应式设计
+- 使用Tailwind响应式前缀
+- 适配移动端和桌面端
+- 保持组件在不同屏幕尺寸下的可用性
+
+## 主题系统
+- 支持亮色/暗色主题切换
+- 使用CSS变量定义颜色
+- 主题配置在[assets/css/themes.css](mdc:assets/css/themes.css)

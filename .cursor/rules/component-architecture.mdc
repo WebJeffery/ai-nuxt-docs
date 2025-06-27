@@ -1,0 +1,102 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 组件架构设计规范
+
+## 组件分类
+
+### 1. UI组件 (components/ui/)
+基于shadcn-vue的基础UI组件，提供统一的视觉设计：
+- [components/ui/button/](mdc:components/ui/button) - 按钮组件
+- [components/ui/card/](mdc:components/ui/card) - 卡片组件
+- [components/ui/dialog/](mdc:components/ui/dialog) - 对话框组件
+- [components/ui/tabs/](mdc:components/ui/tabs) - 标签页组件
+
+### 2. 内容组件 (components/content/)
+专门用于文档内容的展示组件：
+- [components/content/Alert.vue](mdc:components/content/Alert.vue) - 警告组件
+- [components/content/Card.vue](mdc:components/content/Card.vue) - 内容卡片
+- [components/content/CodeGroup.vue](mdc:components/content/CodeGroup.vue) - 代码组
+- [components/content/ProseH1.vue](mdc:components/content/ProseH1.vue) - 标题组件
+
+### 3. 布局组件 (components/layout/)
+页面布局和导航相关组件：
+- [components/layout/Header.vue](mdc:components/layout/Header.vue) - 页面头部
+- [components/layout/Aside.vue](mdc:components/layout/Aside.vue) - 侧边栏
+- [components/layout/Footer.vue](mdc:components/layout/Footer.vue) - 页面底部
+- [components/layout/Toc.vue](mdc:components/layout/Toc.vue) - 目录导航
+
+## 组件设计原则
+
+### 1. 单一职责
+- 每个组件只负责一个功能
+- 避免组件过于复杂
+- 合理拆分大型组件
+
+### 2. 可复用性
+- 组件应该具有通用性
+- 通过props配置组件行为
+- 避免硬编码业务逻辑
+
+### 3. 可组合性
+- 组件之间可以灵活组合
+- 使用插槽(slots)扩展内容
+- 支持嵌套组件结构
+
+### 4. 类型安全
+- 所有props定义TypeScript接口
+- 使用泛型提高组件灵活性
+- 提供完整的类型推导
+
+## 组件通信
+
+### 1. Props向下传递
+```vue
+<script setup lang="ts">
+interface Props {
+  title: string
+  variant?: 'default' | 'destructive'
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  variant: 'default'
+})
+</script>
+```
+
+### 2. Emits向上传递
+```vue
+<script setup lang="ts">
+interface Emits {
+  click: [event: MouseEvent]
+  change: [value: string]
+}
+
+const emit = defineEmits<Emits>()
+</script>
+```
+
+### 3. 插槽内容分发
+```vue
+<template>
+  <div class="card">
+    <header v-if="$slots.header">
+      <slot name="header" />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer v-if="$slots.footer">
+      <slot name="footer" />
+    </footer>
+  </div>
+</template>
+```
+
+## 状态管理
+- 使用组合式函数管理状态
+- 在[composables/](mdc:composables)目录中定义
+- 支持响应式状态共享
+- 避免全局状态污染

@@ -7,16 +7,16 @@ const currentDir = dirname(fileURLToPath(import.meta.url));
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    'shadcn-nuxt',
-    '@vueuse/nuxt',
-    '@ztl-uwu/nuxt-content',
-    '@nuxt/image',
-    '@nuxt/icon',
-    '@nuxtjs/color-mode',
-    'nuxt-og-image',
-    '@nuxt/scripts',
-    '@nuxtjs/i18n',
-    '@nuxt/fonts',
+    'shadcn-nuxt',        // UI组件库
+    '@vueuse/nuxt',       // Vue组合式工具
+    '@ztl-uwu/nuxt-content', // 内容管理
+    '@nuxt/image',        // 图片优化
+    '@nuxt/icon',         // 图标系统
+    '@nuxtjs/color-mode', // 暗色模式
+    'nuxt-og-image',      // OG图片生成
+    '@nuxt/scripts',      // 脚本管理
+    '@nuxtjs/i18n',       // 国际化
+    '@nuxt/fonts',        // 字体管理
   ],
   shadcn: {
     prefix: 'Ui',
