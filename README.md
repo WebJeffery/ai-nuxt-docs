@@ -1,4 +1,4 @@
-![hero](https://github.com/user-attachments/assets/f954ed2a-c504-40c2-9e84-4ae4ed31e793)
+![首页](./docs//images/home.png)
 
 <h1 align="center">Nuxt3 AI企业级开发实战指南</h1>
 
@@ -92,7 +92,7 @@
       TypeScript
     </td>
     <td align="center">
-      <img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg" width="40"><br>
+      <img src="https://tailwindcss.com//favicons/favicon-32x32.png" width="40"><br>
       Tailwind CSS
     </td>
     <td align="center">
@@ -141,7 +141,7 @@
 
 1. **克隆项目**
    ```bash
-   git clone https://github.com/your-username/ai-nuxt-docs.git
+   git clone https://github.com/WebJeffery/ai-nuxt-docs.git
    cd ai-nuxt-docs
    ```
 
@@ -175,33 +175,7 @@ docker build -t ai-nuxt-docs .
 docker run -p 3000:3000 ai-nuxt-docs
 ```
 
-## 📚 学习路径
 
-### 🌱 新手入门 (1-2周)
-- [x] **环境搭建** - 开发环境配置
-- [x] **Nuxt3基础** - 框架核心概念
-- [x] **Vue3进阶** - 组合式API详解
-- [x] **TypeScript集成** - 类型安全开发
-
-### 🚀 进阶实战 (3-4周)
-- [ ] **企业级架构** - 项目结构设计
-- [ ] **AI服务集成** - 智能功能开发
-- [ ] **性能优化** - 应用性能提升
-- [ ] **测试与部署** - 质量保障流程
-
-### 🏢 企业级应用 (5-8周)
-- [ ] **微服务架构** - 大型项目设计
-- [ ] **监控与运维** - 生产环境管理
-- [ ] **团队协作** - 开发工作流程
-- [ ] **案例研究** - 真实项目分析
-
-## 🎯 适合人群
-
-- **🧑‍💻 前端开发者** - 希望学习全栈开发
-- **🤖 AI爱好者** - 想要集成AI技术到Web应用
-- **🏢 企业团队** - 需要企业级解决方案
-- **🎓 技术学习者** - 追求最新技术趋势
-- **💼 技术主管** - 寻求技术架构参考
 
 ## 🤝 贡献指南
 
@@ -241,15 +215,9 @@ docker run -p 3000:3000 ai-nuxt-docs
 
 感谢所有为项目做出贡献的开发者！
 
-<a href="https://github.com/your-username/ai-nuxt-docs/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=your-username/ai-nuxt-docs" />
+<a href="https://github.com/WebJeffery/ai-nuxt-docs/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=WebJeffery/ai-nuxt-docs" />
 </a>
-
-## 📊 项目统计
-
-<p align="center">
-  <img src="https://repobeats.axiom.co/api/embed/yourstatsid.svg" alt="Repobeats analytics" />
-</p>
 
 ## 🏆 项目亮点
 
@@ -267,13 +235,6 @@ docker run -p 3000:3000 ai-nuxt-docs
 - **💬 微信群**: 扫码加入技术交流群
 - **📺 B站**: 视频教程和直播分享
 - **📧 邮件**: contact@yourproject.com
-
-### 📅 社区活动
-
-- **🎯 每周分享** - 技术要点解析
-- **🚀 月度回顾** - 项目进展总结
-- **🎪 在线Workshop** - 实战项目指导
-- **🏆 贡献评选** - 优秀贡献者表彰
 
 ## 📄 许可证
 
@@ -299,7 +260,7 @@ docker run -p 3000:3000 ai-nuxt-docs
 
 ## 🎉 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=your-username/ai-nuxt-docs&type=Date)](https://star-history.com/#your-username/ai-nuxt-docs&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=WebJeffery/ai-nuxt-docs&type=Date)](https://star-history.com/#WebJeffery/ai-nuxt-docs&Date)
 
 ---
 
@@ -308,13 +269,13 @@ docker run -p 3000:3000 ai-nuxt-docs
 </p>
 
 <p align="center">
-  <a href="https://github.com/your-username/ai-nuxt-docs/stargazers">
-    <img src="https://img.shields.io/github/stars/your-username/ai-nuxt-docs?style=social" alt="GitHub stars">
+  <a href="https://github.com/WebJeffery/ai-nuxt-docs/stargazers">
+    <img src="https://img.shields.io/github/stars/WebJeffery/ai-nuxt-docs?style=social" alt="GitHub stars">
   </a>
-  <a href="https://github.com/your-username/ai-nuxt-docs/network/members">
-    <img src="https://img.shields.io/github/forks/your-username/ai-nuxt-docs?style=social" alt="GitHub forks">
+  <a href="https://github.com/WebJeffery/ai-nuxt-docs/network/members">
+    <img src="https://img.shields.io/github/forks/WebJeffery/ai-nuxt-docs?style=social" alt="GitHub forks">
   </a>
-  <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20Nuxt3%20AI%20guide!&url=https://github.com/your-username/ai-nuxt-docs">
-    <img src="https://img.shields.io/twitter/url?style=social&url=https://github.com/your-username/ai-nuxt-docs" alt="Twitter">
+  <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20Nuxt3%20AI%20guide!&url=https://github.com/WebJeffery/ai-nuxt-docs">
+    <img src="https://img.shields.io/twitter/url?style=social&url=https://github.com/WebJeffery/ai-nuxt-docs" alt="Twitter">
   </a>
 </p>
