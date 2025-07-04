@@ -52,9 +52,9 @@ export default defineAppConfig({
           description: '探索丰富的UI组件和使用示例',
           icon: 'lucide:box',
         }, {
-          title: 'API文档',
-          to: '/api/configuration/shadcn-docs',
-          description: '深入了解配置选项和API接口',
+          title: 'AI文档',
+          to: '/ai/configuration/shadcn-docs',
+          description: '深入了解配置选项和AI接口',
           target: '_self',
           icon: 'lucide:code',
         }],
