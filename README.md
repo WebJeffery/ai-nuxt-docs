@@ -1,99 +1,77 @@
 ![首页](./docs//images/home.png)
 
-<h1 align="center">Nuxt3 AI企业级开发实战指南</h1>
+<h1 align="center">《Nuxt4 Alpha AI 企业级技术栈实战指南》文档</h1>
 
 <p align="center">
-  <strong>🚀 现代化全栈开发 | 🤖 AI技术集成 | 🏢 企业级架构 | 📚 实战导向</strong>
+  <strong>🚀 下一代全栈框架 | 🤖 AI原生 | 🏢 企业级架构 | 📚 前沿技术探索</strong>
 </p>
 
 <p align="center">
   <a href="https://nuxt.com" target="_blank">
-    <img src="https://img.shields.io/badge/Built%20With%20Nuxt3-00DC82?style=flat&logo=nuxt.js&logoColor=white" alt="Built with Nuxt3">
+    <img src="https://img.shields.io/badge/Nuxt4%20Alpha-00DC82?style=flat&logo=nuxt.js&logoColor=white" alt="Nuxt4 Alpha">
   </a>
   <a href="https://vuejs.org" target="_blank">
-    <img src="https://img.shields.io/badge/Vue3-4FC08D?style=flat&logo=vue.js&logoColor=white" alt="Vue3">
+    <img src="https://img.shields.io/badge/Vue3.4-4FC08D?style=flat&logo=vue.js&logoColor=white" alt="Vue3.4">
   </a>
   <a href="https://www.typescriptlang.org" target="_blank">
-    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" alt="TypeScript">
+    <img src="https://img.shields.io/badge/TypeScript5.4-007ACC?style=flat&logo=typescript&logoColor=white" alt="TypeScript 5.4">
+  </a>
+  <a href="https://vitejs.dev" target="_blank">
+    <img src="https://img.shields.io/badge/Vite5-646CFF?style=flat&logo=vite&logoColor=white" alt="Vite 5">
   </a>
   <a href="https://tailwindcss.com" target="_blank">
     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
   </a>
   <a href="https://openai.com" target="_blank">
-    <img src="https://img.shields.io/badge/AI_Powered-412991?style=flat&logo=openai&logoColor=white" alt="AI Powered">
+    <img src="https://img.shields.io/badge/AI_Native-412991?style=flat&logo=openai&logoColor=white" alt="AI Native">
   </a>
 </p>
 
 <p align="center">
-  <a href="#快速开始">快速开始</a> •
-  <a href="#核心特性">核心特性</a> •
-  <a href="#技术栈">技术栈</a> •
-  <a href="#学习路径">学习路径</a> •
-  <a href="#贡献指南">贡献</a> •
-  <a href="#社区">社区</a>
+  <a href="#📖 项目简介">📖 项目简介</a> •
+  <a href="#✨ 核心特性">✨ 核心特性</a> •
+  <a href="#🛠️ 前沿技术栈">🛠️ 前沿技术栈</a> •
+  <a href="#🤝 贡献指南">🤝 贡献指南</a> •
+  <a href="#🏆 项目亮点">🏆 项目亮点</a>
 </p>
 
 ---
 
 ## 📖 项目简介
 
-**Nuxt3 AI企业级开发实战指南** 是一个开源的学习平台，专为希望掌握现代化全栈开发和AI技术集成的开发者而设计。通过实战案例、最佳实践和完整的企业级解决方案，帮助开发者快速提升技能，构建生产级应用。
+**Nuxt4 Alpha 企业级技术栈实战指南** 是一个前沿的开源学习文档，专为探索下一代全栈开发技术的开发者学习而设计。基于 Nuxt4 Alpha 版本，展示最新的框架特性、架构设计和 AI 原生集成方案，帮助开发者提前掌握未来的 Web 开发技术。
 
 ### 🎯 项目愿景
 
-- **🌟 降低学习门槛**：提供从零到一的完整学习路径
-- **🤖 AI技术普及**：让每个开发者都能轻松集成AI功能
-- **🏢 企业级标准**：展示真实项目中的架构设计和最佳实践
-- **🔄 持续更新**：紧跟技术趋势，保持内容的先进性
-- **🤝 开源共建**：建立活跃的开发者社区，共同创造价值
+- **🔮 技术前瞻**：探索下一代 Web 开发技术
+- **🤖 AI 原生**：深度学习 AI 功能，构建智能化应用
+- **🏢 企业开箱即用**：学习生产级的架构设计和最佳实践
+- **🔄 持续演进**：跟随 Nuxt4 发展，及时了解最新特性
 
 ## ✨ 核心特性
 
-### 🚀 现代化技术栈
-- **Nuxt3 + Vue3** - 最新的全栈框架
-- **TypeScript** - 完整的类型安全体系
-- **Tailwind CSS + shadcn-vue** - 现代化UI设计系统
-- **Vite + ESBuild** - 极速的开发体验
 
-### 🤖 AI技术集成
-- **多模型支持** - OpenAI GPT、Claude、本地模型
-- **智能组件** - 开箱即用的AI功能组件
-- **流式响应** - 实时的AI交互体验
-- **成本优化** - 智能的token管理和缓存策略
-
-### 🏗️ 企业级架构
-- **微服务设计** - 可扩展的服务架构
-- **认证授权** - 完整的用户权限管理
-- **性能优化** - SSR/SSG、缓存、CDN等优化策略
-- **监控告警** - 完善的应用监控体系
-
-### 📚 完整的学习体系
-- **理论基础** - 深入的概念解析
-- **实战案例** - 真实的项目示例
-- **最佳实践** - 经过验证的开发规范
-- **工具链** - 现代化的开发工作流
-
-## 🛠️ 技术栈
+## 🛠️ 前沿技术栈
 
 <table>
   <tr>
-    <td align="center"><strong>前端框架</strong></td>
+    <td align="center"><strong>核心框架</strong></td>
     <td align="center"><strong>开发语言</strong></td>
-    <td align="center"><strong>样式方案</strong></td>
-    <td align="center"><strong>AI服务</strong></td>
+    <td align="center"><strong>构建工具</strong></td>
+    <td align="center"><strong>AI 服务</strong></td>
   </tr>
   <tr>
     <td align="center">
       <img src="https://nuxt.com/assets/design-kit/icon-green.png" width="40"><br>
-      Nuxt3
+      Nuxt4 Alpha
     </td>
     <td align="center">
       <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" width="40"><br>
-      TypeScript
+      TypeScript 5.4
     </td>
     <td align="center">
-      <img src="https://tailwindcss.com//favicons/favicon-32x32.png" width="40"><br>
-      Tailwind CSS
+      <img src="https://vitejs.dev/logo.svg" width="40"><br>
+      Vite 5
     </td>
     <td align="center">
       <img src="https://seeklogo.com/images/O/open-ai-logo-8B9BFEDC26-seeklogo.com.png" width="40"><br>
@@ -104,23 +82,23 @@
 
 <table>
   <tr>
-    <td align="center"><strong>状态管理</strong></td>
-    <td align="center"><strong>数据库</strong></td>
+    <td align="center"><strong>UI 框架</strong></td>
+    <td align="center"><strong>服务器引擎</strong></td>
     <td align="center"><strong>部署平台</strong></td>
-    <td align="center"><strong>测试框架</strong></td>
+    <td align="center"><strong>开发工具</strong></td>
   </tr>
   <tr>
     <td align="center">
-      <img src="https://pinia.vuejs.org/logo.svg" width="40"><br>
-      Pinia
+      <img src="https://ui.shadcn.com/favicon-32x32.png" width="40"><br>
+      shadcn-vue
     </td>
     <td align="center">
-      <img src="https://www.prisma.io/images/favicon-32x32.png" width="40"><br>
-      Prisma
+      <img src="https://nitro.unjs.io/icon.svg" width="40"><br>
+      Nitro 2.8+
     </td>
     <td align="center">
       <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/57x57.png" width="40"><br>
-      Vercel
+      Vercel/Netlify
     </td>
     <td align="center">
       <img src="https://vitest.dev/logo.svg" width="40"><br>
@@ -129,11 +107,12 @@
   </tr>
 </table>
 
+
 ## 🚀 快速开始
 
 ### 前置要求
 
-- **Node.js** >= 18.17.0
+- **Node.js** >= 20.0.0
 - **pnpm** >= 8.0.0 (推荐)
 - **Git** 版本控制
 
@@ -164,17 +143,6 @@
 5. **访问应用**
 
    打开浏览器访问 [http://localhost:3000](http://localhost:3000)
-
-### Docker 部署
-
-```bash
-# 构建镜像
-docker build -t ai-nuxt-docs .
-
-# 运行容器
-docker run -p 3000:3000 ai-nuxt-docs
-```
-
 
 
 ## 🤝 贡献指南
@@ -219,22 +187,14 @@ docker run -p 3000:3000 ai-nuxt-docs
   <img src="https://contrib.rocks/image?repo=WebJeffery/ai-nuxt-docs" />
 </a>
 
-## 🏆 项目亮点
-
-- **⭐ GitHub Stars**: 成长中的开源项目
-- **🔄 更新频率**: 每周定期更新
-- **📝 文档质量**: 详细的中文文档
-- **🤖 AI集成**: 前沿的AI技术应用
-- **🏢 企业级**: 生产环境可用的解决方案
-
-## 🌍 社区
+## 🌟 社区与支持
 
 ### 💬 交流渠道
+- **🐛 Issues**: [GitHub Issues](https://github.com/WebJeffery/ai-nuxt-docs/issues) - 问题反馈
+- **💡 Discussions**: [GitHub Discussions](https://github.com/WebJeffery/ai-nuxt-docs/discussions) - 技术讨论
+- **📺 B站**: 视频教程和技术分享
+- **📧 邮件**: contact@nuxt4.dev
 
-- **🐦 Twitter**: [@YourTwitter](https://twitter.com/yourtwitter) - 项目动态
-- **💬 微信群**: 扫码加入技术交流群
-- **📺 B站**: 视频教程和直播分享
-- **📧 邮件**: contact@yourproject.com
 
 ## 📄 许可证
 
@@ -250,13 +210,13 @@ docker run -p 3000:3000 ai-nuxt-docs
 
 ## 🙏 致谢
 
-特别感谢以下优秀的开源项目：
+特别感谢以下技术和社区：
 
-- [Nuxt.js](https://nuxt.com/) - 强大的Vue.js框架
-- [Vue.js](https://vuejs.org/) - 渐进式JavaScript框架
-- [shadcn-vue](https://www.shadcn-vue.com/) - 精美的UI组件库
-- [Tailwind CSS](https://tailwindcss.com/) - 实用的CSS框架
-- [OpenAI](https://openai.com/) - 领先的AI技术服务
+- [Nuxt.js 团队](https://nuxt.com/team) - 创造了优秀的全栈框架
+- [Vue.js 团队](https://vuejs.org/about/team.html) - 提供了强大的前端基础
+- [UnJS 社区](https://unjs.io/) - 构建了现代化的工具生态
+- [Vite 团队](https://vitejs.dev/team.html) - 带来了极速的开发体验
+- [TypeScript 团队](https://www.typescriptlang.org/) - 提供了强大的类型系统
 
 ## 🎉 Star History
 
@@ -265,7 +225,7 @@ docker run -p 3000:3000 ai-nuxt-docs
 ---
 
 <p align="center">
-  <strong>🌟 如果这个项目对你有帮助，请给我们一个 Star！</strong>
+  <strong>🌟 探索 Nuxt4 的未来，从现在开始！</strong>
 </p>
 
 <p align="center">
@@ -275,7 +235,7 @@ docker run -p 3000:3000 ai-nuxt-docs
   <a href="https://github.com/WebJeffery/ai-nuxt-docs/network/members">
     <img src="https://img.shields.io/github/forks/WebJeffery/ai-nuxt-docs?style=social" alt="GitHub forks">
   </a>
-  <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20amazing%20Nuxt3%20AI%20guide!&url=https://github.com/WebJeffery/ai-nuxt-docs">
+  <a href="https://twitter.com/intent/tweet?text=Exploring%20the%20future%20of%20web%20development%20with%20Nuxt4%20Alpha!&url=https://github.com/WebJeffery/ai-nuxt-docs">
     <img src="https://img.shields.io/twitter/url?style=social&url=https://github.com/WebJeffery/ai-nuxt-docs" alt="Twitter">
   </a>
 </p>
