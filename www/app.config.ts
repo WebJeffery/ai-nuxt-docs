@@ -1,7 +1,7 @@
 export default defineAppConfig({
   shadcnDocs: {
     site: {
-      name: 'Nuxt3 AI企业级开发实战指南',
+      name: 'Nuxt4 AI企业级开发实战指南',
       description: '全面掌握Nuxt3 + AI技术栈，从基础到企业级实战的完整学习路径。涵盖Vue3、TypeScript、AI集成、性能优化等核心技术。',
       ogImage: '/hero.png',
       ogImageComponent: 'ShadcnDocs',
@@ -20,13 +20,13 @@ export default defineAppConfig({
     banner: {
       enable: true,
       showClose: true,
-      content: '🚀 **全新升级** - Nuxt3 AI企业级开发实战指南现已发布！',
+      content: '🚀 **全新升级** - Nuxt4 AI企业级开发实战指南现已发布！',
       to: '/getting-started/introduction',
       target: '_self',
       border: true,
     },
     header: {
-      title: 'Nuxt3 AI实战指南',
+      title: 'Nuxt4 AI实战指南',
       showTitle: true,
       logo: {
         light: '/logo.svg',
@@ -39,64 +39,30 @@ export default defineAppConfig({
         triggerType: 'icon',
         dropdownType: 'select',
       },
-      nav: [{
-        title: '文档',
-        links: [{
-          title: '快速开始',
-          to: '/getting-started',
-          description: '快速搭建你的第一个Nuxt3 AI应用',
-          icon: 'lucide:rocket',
-        }, {
-          title: '组件库',
-          to: '/components/prose',
-          description: '探索丰富的UI组件和使用示例',
-          icon: 'lucide:box',
-        }, {
-          title: 'AI文档',
-          to: '/ai/configuration/shadcn-docs',
-          description: '深入了解配置选项和AI接口',
-          target: '_self',
-          icon: 'lucide:code',
-        }],
-      }, {
-        title: 'AI技术',
-        links: [{
-          title: 'AI集成指南',
-          to: '/ai/integration',
-          description: '学习如何在Nuxt3中集成AI技术',
-          target: '_self',
-        }, {
-          title: '智能组件',
-          to: '/ai/components',
-          description: '使用AI驱动的智能组件',
-          target: '_self',
-        }, {
-          title: '性能优化',
-          to: '/ai/optimization',
-          description: 'AI应用的性能调优策略',
-          target: '_self',
-        }],
-      },
-      // {
-      //   title: '实战案例',
-      //   links: [{
-      //     title: '企业级项目',
-      //     to: '/examples/enterprise',
-      //     description: '真实企业级项目开发案例',
-      //     target: '_self',
-      //   }, {
-      //     title: 'AI应用场景',
-      //     to: '/examples/ai-scenarios',
-      //     description: '常见AI应用场景实现',
-      //     target: '_self',
-      //   }],
-      // },
-      {
-        title: '博客',
-        to: '/blog',
-        target: '_self',
-        showLinkIcon: false,
-      }],
+      // nav: [{
+      //   title: 'Nuxt 核心技术',
+      //   to: '/nuxt-docs/base/introduction',
+      //   target: '_self',
+      //   showLinkIcon: false,
+      //   // links: [{
+      //   //   title: 'Nuxt 核心技术',
+      //   //   to: '/getting-started',
+      //   //   description: '快速搭建你的第一个Nuxt3 AI应用',
+      //   //   icon: 'lucide:rocket',
+      //   // }, {
+      //   //   title: '组件库',
+      //   //   to: '/components/prose',
+      //   //   description: '探索丰富的UI组件和使用示例',
+      //   //   icon: 'lucide:box',
+      //   // }, {
+      //   //   title: 'AI文档',
+      //   //   to: '/ai/configuration/shadcn-docs',
+      //   //   description: '深入了解配置选项和AI接口',
+      //   //   target: '_self',
+      //   //   icon: 'lucide:code',
+      //   // }],
+      // }
+      // ],
       links: [
         {
           icon: 'lucide:book-open',
@@ -105,7 +71,7 @@ export default defineAppConfig({
         },
         {
           icon: 'lucide:github',
-          to: 'https://github.com/your-username/nuxt3-ai-guide',
+          to: 'https://github.com/WebJeffery/ai-nuxt-docs',
           target: '_blank',
         },
       ],
@@ -125,7 +91,7 @@ export default defineAppConfig({
       codeCopyIcon: 'lucide:clipboard',
       editLink: {
         enable: true,
-        pattern: 'https://github.com/your-username/nuxt3-ai-guide/edit/main/www/content/:path',
+        pattern: 'https://github.com/WebJeffery/ai-nuxt-docs/edit/main/www/content/:path',
         text: '编辑此页面',
         icon: 'lucide:square-pen',
         placement: ['docsFooter'],
@@ -177,7 +143,7 @@ export default defineAppConfig({
       },
     },
     footer: {
-      credits: '© 2024 Nuxt3 AI企业级开发实战指南. 专注于现代化前端开发技术分享.',
+      credits: '© 2024 Nuxt4 AI企业级开发实战指南. 专注于现代化前端开发技术分享.',
       links: [
         {
           icon: 'lucide:book-open',
@@ -186,20 +152,14 @@ export default defineAppConfig({
           target: '_self',
         },
         {
-          icon: 'lucide:cpu',
-          title: 'AI技术',
-          to: '/ai/integration',
+          icon: 'lucide:brain',
+          title: 'Nuxt 核心技术',
+          to: '/nuxt-docs/base/introduction',
           target: '_self',
         },
         {
-          icon: 'lucide:users',
-          title: '社区讨论',
-          to: 'https://github.com/your-username/nuxt3-ai-guide/discussions',
-          target: '_blank',
-        },
-        {
           icon: 'lucide:github',
-          to: 'https://github.com/your-username/nuxt3-ai-guide',
+          to: 'https://github.com/WebJeffery/ai-nuxt-docs',
           target: '_blank',
         },
       ],
@@ -213,14 +173,14 @@ export default defineAppConfig({
         {
           title: '⭐ Star支持',
           icon: 'lucide:star',
-          to: 'https://github.com/your-username/nuxt3-ai-guide',
+          to: 'https://github.com/WebJeffery/ai-nuxt-docs',
           target: '_blank',
           showLinkIcon: true,
         },
         {
           title: '💬 问题反馈',
           icon: 'lucide:circle-dot',
-          to: 'https://github.com/your-username/nuxt3-ai-guide/issues',
+          to: 'https://github.com/WebJeffery/ai-nuxt-docs/issues',
           target: '_blank',
           showLinkIcon: true,
         },
@@ -238,12 +198,12 @@ export default defineAppConfig({
         },
         {
           icon: 'lucide:users',
-          to: 'https://github.com/your-username/nuxt3-ai-guide/discussions',
+          to: 'https://github.com/WebJeffery/ai-nuxt-docs/discussions',
           target: '_blank',
         },
         {
           icon: 'lucide:github',
-          to: 'https://github.com/your-username/nuxt3-ai-guide',
+          to: 'https://github.com/WebJeffery/ai-nuxt-docs',
           target: '_blank',
         },
       ],

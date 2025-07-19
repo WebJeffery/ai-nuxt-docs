@@ -17,7 +17,7 @@
         <LayoutSearchButton v-if="!config.search.inAside && config.search.style === 'input'" />
         <div class="flex">
           <LayoutSearchButton v-if="!config.search.inAside && config.search.style === 'button'" />
-          <LangSwitcher v-if="i18nEnabled" />
+          <!-- <LangSwitcher v-if="i18nEnabled" /> -->
           <ThemePopover v-if="config.theme.customizable" />
           <DarkModeToggle v-if="config.header.darkModeToggle" />
           <NuxtLinkLocale

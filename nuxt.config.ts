@@ -45,6 +45,18 @@ export default defineNuxtConfig({
     '~/assets/css/tailwind.css',
   ],
   content: {
+    markdown: {
+      toc: {
+        depth: 4, // 设置TOC深度为4，包含h1-h4标题
+        searchDepth: 4,
+      },
+      anchorLinks: {
+        h1: true,
+        h2: true,
+        h3: true,
+        h4: true, // 为h4标题生成锚点链接
+      },
+    },
     documentDriven: true,
     highlight: {
       theme: {
