@@ -5,7 +5,7 @@ alwaysApply: false
 ---
 # 性能优化规范
 
-## Nuxt3 自动优化
+## Nuxt4 自动优化
 
 ### 1. 代码分割
 - Nuxt自动进行代码分割

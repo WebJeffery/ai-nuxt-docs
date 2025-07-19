@@ -1,0 +1,3 @@
+title: Nuxt 高级篇
+icon: lucide:zap
+navigation.redirect: /nuxt-docs/advanced/rendering-modes 

@@ -8,7 +8,7 @@ alwaysApply: false
 这是一个基于Nuxt3构建的现代化文档站点项目，使用Vue3+TypeScript技术栈。
 
 ## 核心技术栈
-- **框架**: Nuxt3 (Vue3)
+- **框架**: Nuxt4 (Vue3)
 - **语言**: TypeScript
 - **UI组件**: shadcn-vue
 - **样式**: Tailwind CSS
