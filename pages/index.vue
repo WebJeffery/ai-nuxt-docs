@@ -4,7 +4,7 @@
     :class="[config.main.padded && 'container']"
   >
     <ContentRenderer
-      :key="page._id"
+      :key="page._id || page.title || 'index'"
       :value="page"
       :data="(appConfig.shadcnDocs as any)?.data"
     />

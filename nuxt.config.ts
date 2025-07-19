@@ -5,6 +5,11 @@ import tailwindcss from '@tailwindcss/vite';
 const currentDir = dirname(fileURLToPath(import.meta.url));
 
 export default defineNuxtConfig({
+  site: {
+    name: 'Nuxt 全栈企业级开发实战指南',
+    description: '全面掌握 Nuxt 全栈技术栈，从零基础到企业级应用开发的完整学习路径',
+    url: 'https://ai-nuxt-docs.vercel.app/',
+  },
   devtools: { enabled: true },
   modules: [
     'shadcn-nuxt',        // UI组件库
