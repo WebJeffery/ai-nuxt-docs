@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     name: 'Nuxt 全栈企业级开发实战指南',
     description: '全面掌握 Nuxt 全栈技术栈，从零基础到企业级应用开发的完整学习路径',
     url: 'https://ai-nuxt-docs.vercel.app/',
+    logo: 'https://ai-nuxt-docs.vercel.app/logo.svg',
   },
   devtools: { enabled: true },
   modules: [
