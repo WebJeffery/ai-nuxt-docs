@@ -1,8 +1,8 @@
 <template>
   <div>
     <NuxtLinkLocale v-if="logo.light && logo.dark" :to="localePath('/')" class="flex">
-      <NuxtImg :src="logo.light" class="h-7 dark:hidden" />
-      <NuxtImg :src="logo.dark" class="hidden h-7 dark:block" />
+      <NuxtImg src="https://ai-nuxt-docs.vercel.app/logo.svg" class="h-7 dark:hidden" />
+      <NuxtImg src="https://ai-nuxt-docs.vercel.app/logo-dark.svg" class="hidden h-7 dark:block" />
       <span v-if="showTitle && title" class="ml-3 self-center font-bold">
         {{ $t(title) }}
       </span>
