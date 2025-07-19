@@ -18,7 +18,7 @@
       :class="[config.main.padded && 'container']"
     >
       <ContentRenderer
-        :key="page._id"
+        :key="page._id || page.title || 'fullpage'"
         :value="page"
         :data="(appConfig.shadcnDocs as any)?.data"
       />
@@ -48,7 +48,7 @@
 
         <ContentRenderer
           v-else
-          :key="page._id"
+          :key="page._id || page.title || 'content'"
           :value="page"
           :data="(appConfig.shadcnDocs as any)?.data"
           class="docs-content"

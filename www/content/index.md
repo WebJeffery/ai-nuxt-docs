@@ -8,7 +8,7 @@ navigation: false
 announcement:
   title: '🎉 全新发布 v1.0'
   icon: '🚀'
-  to: /blog/v1
+  to: /getting-started/introduction
 actions:
   - name: 立即开始学习
     to: /getting-started/introduction

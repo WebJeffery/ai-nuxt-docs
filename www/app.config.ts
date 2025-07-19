@@ -192,11 +192,6 @@ export default defineAppConfig({
           target: '_self',
         },
         {
-          icon: 'lucide:cpu',
-          to: '/ai/integration',
-          target: '_self',
-        },
-        {
           icon: 'lucide:users',
           to: 'https://github.com/WebJeffery/ai-nuxt-docs/discussions',
           target: '_blank',
